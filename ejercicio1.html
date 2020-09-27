@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .juan{
+        width:10px;
+        height:10px;
+        margin:5px;
+        background:green;
+    }
+    .raul{
+        width:10px;
+        height:10px;
+        margin:5px;
+        background:blue;
+    }
+    .maria{
+        width:10px;
+        height:10px;
+        margin:5px;
+        background:pink;
+        transform: translateX(50px);
+    }
+</style>
+<body>
+    <h1 style="text-align: center;">Juan corre a 10px por segundo. Raul corre a 20px por segundo. Maria corre a 10px por segundo pero empieza con 50px de ventaja. Graficar utilizando JavaScript.</h1>
+    <br>
+    <h3 id="juan-text">Juan </h3>
+    <div class="juan" id="juan"></div>
+    <br>
+    <h3 id="raul-text">Raúl </h3>
+    <div class="raul" id="raul"></div>
+    <br>
+    <h3 id="maria-text">María </h3>
+    <div class="maria" id="maria"></div>
+</body>
+
+<script>
+    
+    
+    let juan = document.getElementById('juan')
+    let raul = document.getElementById('raul')
+    let maria = document.getElementById('maria')
+    let juanText = document.getElementById('juan-text')
+    let raulText = document.getElementById('raul-text')
+    let mariaText = document.getElementById('maria-text')
+    let x = 0;
+    let y = 0;
+    let z = 50;
+    
+    let intervalo = setInterval(correrJuan, 1000);
+    function correrJuan(){
+        if(x == 100){
+        console.log("fin")
+        clearInterval(intervalo)
+        juan.style.opacity = "0"
+        juanText.innerText += " llegó!"
+    }else{ 
+        juan.style.transform = `translateX(${x}px)`
+        x += 10
+    }
+    }
+
+    let intervalo2 = setInterval(correrRaul,1000);
+    function correrRaul(){
+        if(y == 100){
+        console.log("fin")
+        clearInterval(intervalo2)
+        raul.style.opacity = "0"
+        raulText.innerText += " llegó!"
+    }else{ 
+        raul.style.transform = `translateX(${y}px)`
+        y += 20
+    }
+    }
+
+    let intervalo3 = setInterval(correrMaria,1000);
+    function correrMaria(){
+        if(z == 100){
+        console.log("fin")
+        clearInterval(intervalo3)
+        maria.style.opacity = "0"
+        mariaText.innerText += " llegó!"
+    }else{ 
+        maria.style.transform = `translateX(${z}px)`
+        z += 10
+    }
+    }
+   
+
+    
+    
+
+    
+</script>
+</html>
